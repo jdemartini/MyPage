@@ -15,7 +15,7 @@
     <AssemblyName>MyPage.MVC</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -342,6 +342,10 @@
       <Project>{2393aed1-aa3a-4af7-85d1-17f674696d82}</Project>
       <Name>MyPage.Library</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MyPage.Resources\MyPage.Resources.csproj">
+      <Project>{7e03107c-8d6f-4255-af62-6894c6a4e4cd}</Project>
+      <Name>MyPage.Resources</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -359,9 +363,11 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>50044</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50325/</IISUrl>
+          <IISUrl>http://localhost/MyPage.MVC</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost/MyPage.MVC</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

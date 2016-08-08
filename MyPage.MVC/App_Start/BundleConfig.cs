@@ -25,6 +25,7 @@ namespace MyPage.MVC
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/myPage")
+                .Include("~/Scripts/bootstrap.js") 
                 .Include("~/Scripts/toastr.js") 
                 .Include("~/Scripts/global.js"));
 
