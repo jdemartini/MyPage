@@ -29,6 +29,11 @@ namespace MyPage.MVC
                 .Include("~/Scripts/toastr.js") 
                 .Include("~/Scripts/global.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/myPage.maps")
+                .Include("~/Scripts/TypeScript/Map.js")
+                //.Include(string.Format("https://maps.googleapis.com/maps/api/js?key={0}&callback=initMap", ""))
+                );
+
             bundles.Add(new StyleBundle("~/Content/css")
                 
                 .Include("~/Content/bootstrap.css")

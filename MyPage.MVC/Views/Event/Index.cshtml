@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/bundles/myPage.maps")
+@Scripts.Render("https://maps.googleapis.com/maps/api/js?key=" + System.Configuration.ConfigurationManager.AppSettings["GoogleMapsKey"])
+
+
+<h2>MAPA</h2>
+<div id="divMap" style="height: 500px; background-color:grey">
+
+</div>
