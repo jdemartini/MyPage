@@ -1,5 +1,5 @@
 ﻿using MyPage.Library;
-using MyPage.MVC.Models;
+using MyPage.MVC.ViewModels;
 using System;
 using System.Configuration;
 using System.Globalization;
@@ -37,7 +37,7 @@ namespace MyPage.MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Contact(Contact contact)
+        public ActionResult Contact(ViewModelContact contact)
         {
             if (ModelState.IsValid == false)
                 return View();

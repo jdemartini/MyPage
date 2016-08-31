@@ -1,23 +1,40 @@
-﻿using System.Web.Mvc;
+﻿using AutoMapper;
+using MyPage.Data.Repositories;
+using MyPage.Domain.Entities;
+using MyPage.MVC.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace MyPage.MVC.Controllers
 {
-    public abstract class BaseController : Controller
+    public abstract class BaseController<ViewModel, DomainModel> : Controller
+        where ViewModel : class, IViewModel
+        where DomainModel : class, IEntity
     {
+        private readonly RepositoryBase<DomainModel> repo;
+
+        public BaseController(RepositoryBase<DomainModel> repo)
+        {
+            this.repo = repo;
+        }
+
         //
         // GET: /Event/
-
         public ActionResult Index()
         {
-            return View();
+            var viewModel = Mapper.Map<IEnumerable<DomainModel>, IEnumerable<ViewModel>>(repo.GetAll());
+            return View(viewModel);
+            
         }
 
         //
         // GET: /Event/Details/5
 
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
-            return View();
+            var v = Mapper.Map<DomainModel, ViewModel>(repo.GetById(id));
+            return View(v);
         }
 
         //
@@ -32,70 +49,74 @@ namespace MyPage.MVC.Controllers
         // POST: /Event/Create
 
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(ViewModel viewModel)
         {
-            try
-            {
-                // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
+            
+            if (ModelState.IsValid)
             {
-                return View();
+                var entityModel = Mapper.Map<ViewModel, DomainModel>(viewModel);
+                repo.Add(entityModel);
             }
+
+            return RedirectToAction("Index");
+           
         }
 
         //
         // GET: /Event/Edit/5
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            var domainModel = repo.GetById(id);
+            var viewModel = Mapper.Map<DomainModel, ViewModel>(domainModel);
+
+            return View(viewModel);
         }
 
         //
         // POST: /Event/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(ViewModel viewModel)
         {
-            try
-            {
-                // TODO: Add update logic here
 
+            if (ModelState.IsValid)
+            {
+                var domainModel = Mapper.Map<ViewModel, DomainModel>(viewModel);
+                repo.Update(domainModel);
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+             
+            return View(viewModel);
+            
         }
 
         //
         // GET: /Event/Delete/5
-
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            return View();
+            var domainModel = repo.GetById(id);
+            var viewModel = Mapper.Map<DomainModel, ViewModel>(domainModel);
+            
+            return View(viewModel);
         }
 
         //
         // POST: /Event/Delete/5
 
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(Guid id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            
+            var domainModel = repo.GetById(id);
+            repo.Remove(domainModel);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
+            
         }
     }
 }

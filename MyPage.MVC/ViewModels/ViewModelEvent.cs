@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace MyPage.MVC.Models
+namespace MyPage.MVC.ViewModels
 {
-    public class Event
+    public class ViewModelEvent : IViewModel
     {
         [Key]
         public Guid? EventId{ get; set; }
@@ -28,7 +28,7 @@ namespace MyPage.MVC.Models
         [ScaffoldColumn(false)]
         public DateTime RegDate { get; set; }
 
-        public IEnumerable<Location> TransmissionPlaces { get; set; } 
+        public IEnumerable<ViewModelLocation> TransmissionPlaces { get; set; } 
 
     }
 }

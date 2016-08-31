@@ -108,6 +108,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MyPage.Data\MyPage.Data.csproj">
+      <Project>{9106e186-c046-4f0a-b97c-4cf20cf69d04}</Project>
+      <Name>MyPage.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyPage.Domain\MyPage.Domain.csproj">
+      <Project>{401ed937-050b-4698-a5d4-108cfa3b71c9}</Project>
+      <Name>MyPage.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyPage.MVC\MyPage.MVC.csproj">
       <Project>{096F4E7A-57BA-42DE-B076-D7779B684411}</Project>
       <Name>MyPage.MVC</Name>

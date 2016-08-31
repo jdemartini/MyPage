@@ -5,9 +5,10 @@ using System.Web.Mvc;
 
 namespace MyPage.MVC.Controllers
 {
-    public class EventController : BaseController<ViewModelEvent, Event>
+    public class LocationController : BaseController<ViewModelLocation, Location>
     {
-        public EventController(RepositoryBase<Event> repo) : base(repo)
+        public LocationController(RepositoryBase<Location> repo)
+            : base(repo)
         {
         }
     }

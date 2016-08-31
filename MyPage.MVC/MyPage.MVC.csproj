@@ -204,15 +204,18 @@
     <Compile Include="AutoMapper\DomainToViewModelMapProfile.cs" />
     <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\EventLocationController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Contact.cs" />
-    <Compile Include="Models\Event.cs" />
-    <Compile Include="Models\EventLocation.cs" />
-    <Compile Include="Models\Location.cs" />
+    <Compile Include="ViewModels\ViewModelContact.cs" />
+    <Compile Include="ViewModels\ViewModelEvent.cs" />
+    <Compile Include="ViewModels\ViewModelEventLocation.cs" />
+    <Compile Include="ViewModels\IViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -354,6 +357,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MyPage.Data\MyPage.Data.csproj">
+      <Project>{9106e186-c046-4f0a-b97c-4cf20cf69d04}</Project>
+      <Name>MyPage.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyPage.Domain\MyPage.Domain.csproj">
       <Project>{401ed937-050b-4698-a5d4-108cfa3b71c9}</Project>
       <Name>MyPage.Domain</Name>

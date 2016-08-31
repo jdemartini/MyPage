@@ -11,9 +11,9 @@ namespace MyPage.MVC.AutoMapper
     {
         protected override void Configure()
         {
-            CreateMap<Models.Event, Event>();
-            CreateMap<Models.Location, Location>();
-            CreateMap<Models.EventLocation, EventLocation>();
+            CreateMap<ViewModels.ViewModelEvent, Event>();
+            CreateMap<ViewModels.ViewModelLocation, Location>();
+            CreateMap<ViewModels.ViewModelEventLocation, EventLocation>();
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MyPage.Domain.Entities
 {
-    public class Location
+    public class Location : IEntity
     {
         public Guid? LocationId { get; set; }
 

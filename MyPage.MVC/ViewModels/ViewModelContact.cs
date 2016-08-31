@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MyPage.MVC.Models
+namespace MyPage.MVC.ViewModels
 {
-    public class Contact
+    public class ViewModelContact
     {
         [Display(Name = "Name", Description = "Your fullname then I can call you properly.")]
         [Required(ErrorMessage = "Name is required.")]

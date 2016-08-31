@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace MyPage.MVC.Models
+namespace MyPage.MVC.ViewModels
 {
-    public class Location
+    public class ViewModelLocation : IViewModel
     {
         public Guid? LocationId { get; set; }
         
